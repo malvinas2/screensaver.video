@@ -54,7 +54,7 @@
 					<height>135</height>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
-	  				<visible>SubString(ListItem.ActualIcon, resource.images.weathericons.default)</visible>
+	  				<visible>SubString(ListItem.ActualIcon,resource.images.weathericons.default)</visible>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -63,7 +63,7 @@
 					<height>135</height>
 					<aspectratio>keep</aspectratio>
 					<texture>resource://resource.images.weathericons.default/$INFO[ListItem.ActualIcon]</texture>
-	  				<visible>!SubString(ListItem.ActualIcon, resource.images.weathericons.default)</visible>
+	  				<visible>!SubString(ListItem.ActualIcon,resource.images.weathericons.default)</visible>
 				</control>
 				<control type="label">
 					<left>150</left>
@@ -106,7 +106,7 @@
 					<height>135</height>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.ActualIcon]</texture>
-	  				<visible>SubString(ListItem.ActualIcon, resource.images.weathericons.default)</visible>
+	  				<visible>SubString(ListItem.ActualIcon,resource.images.weathericons.default)</visible>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -115,7 +115,7 @@
 					<height>135</height>
 					<aspectratio>keep</aspectratio>
 					<texture>resource://resource.images.weathericons.default/$INFO[ListItem.ActualIcon]</texture>
-	  				<visible>!SubString(ListItem.ActualIcon, resource.images.weathericons.default)</visible>
+	  				<visible>!SubString(ListItem.ActualIcon,resource.images.weathericons.default)</visible>
 				</control>
 				<control type="label">
 					<left>150</left>
