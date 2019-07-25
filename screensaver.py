@@ -61,7 +61,7 @@ class VideoScreensaverPlayer(xbmc.Player):
         else:
             log("onPlayBackStarted received, but not playing video file")
 
-        xbmc.Player.onPlayBackStarted(self)
+        xbmc.Player.onAVStarted(self)
 
     # Returns the duration in seconds
     def _getVideoDuration(self, filename):
