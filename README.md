@@ -9,4 +9,4 @@ All credits go to He-who-must-not-be-named aka Robwebset ;-)
 
 VideoScreensaver is a screensaver that will play a video file when the screensaver starts. It will support playing either a user specified video file, or one of the following pre-defined video files detailed on the Wiki.
 
-[Add-on:VideoScreensaver](https://github.com/robwebset/screensaver.video/wiki)
+[Add-on:VideoScreensaver](https://github.com/malvinas2/screensaver.video/wiki)
