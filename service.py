@@ -14,7 +14,7 @@ from resources.lib.settings import log
 from resources.lib.settings import Settings
 
 ADDON = xbmcaddon.Addon(id='screensaver.video')
-CWD = ADDON.getAddonInfo('path').decode("utf-8")
+CWD = ADDON.getAddonInfo('path')
 
 
 ##################################

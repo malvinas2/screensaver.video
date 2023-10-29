@@ -14,9 +14,9 @@ ADDON_ID = ADDON.getAddonInfo('id')
 def log(txt, loglevel=xbmc.LOGDEBUG):
     if (ADDON.getSetting("logEnabled") == "true") or (loglevel != xbmc.LOGDEBUG):
         if isinstance(txt, str):
-            txt = txt.decode("utf-8")
+            txt = txt
         message = u'%s: %s' % (ADDON_ID, txt)
-        xbmc.log(msg=message.encode("utf-8"), level=loglevel)
+        xbmc.log(msg=message, level=loglevel)
 
 
 # There has been problems with calling join with non ascii characters,
@@ -30,11 +30,11 @@ def os_path_join(dir, file):
     # Convert each argument - if an error, then it will use the default value
     # that was passed in
     try:
-        dir = dir.decode("utf-8")
+        dir = dir
     except:
         pass
     try:
-        file = file.decode("utf-8")
+        file = file
     except:
         pass
     return os.path.join(dir, file)
@@ -78,7 +78,7 @@ def os_path_isfile(workingPath):
     # Convert each argument - if an error, then it will use the default value
     # that was passed in
     try:
-        workingPath = workingPath.decode("utf-8")
+        workingPath = workingPath
     except:
         pass
     try:
@@ -175,15 +175,15 @@ class Settings():
 
     @staticmethod
     def getScreensaverVideo():
-        return ADDON.getSetting("screensaverFile").decode("utf-8")
+        return ADDON.getSetting("screensaverFile")
 
     @staticmethod
     def getScreensaverFolder():
-        screenFolder = ADDON.getSetting("screensaverFolder").decode("utf-8")
+        screenFolder = ADDON.getSetting("screensaverFolder")
 
         # If the screensaver folder has not been set yet, then set it to default
         if screenFolder in [None, ""]:
-            addonRootDir = xbmc.translatePath('special://profile/addon_data/%s' % ADDON_ID).decode("utf-8")
+            addonRootDir = xbmcvfs.translatePath('special://profile/addon_data/%s' % ADDON_ID)
             screenFolder = os_path_join(addonRootDir, 'videos')
             ADDON.setSetting("screensaverFolder", screenFolder)
 
@@ -197,7 +197,7 @@ class Settings():
 
     @staticmethod
     def getTempFolder():
-        addonRootDir = xbmc.translatePath('special://profile/addon_data/%s' % ADDON_ID).decode("utf-8")
+        addonRootDir = xbmcvfs.translatePath('special://profile/addon_data/%s' % ADDON_ID)
         tempDir = os_path_join(addonRootDir, 'temp')
 
         # Make sure the screensaver folder exists, if not, createe it
@@ -210,7 +210,7 @@ class Settings():
 
     @staticmethod
     def getCustomFolder():
-        addonRootDir = xbmc.translatePath('special://profile/addon_data/%s' % ADDON_ID).decode("utf-8")
+        addonRootDir = xbmcvfs.translatePath('special://profile/addon_data/%s' % ADDON_ID)
         customDir = os_path_join(addonRootDir, 'custom')
 
         # Make sure the screensaver folder exists, if not, createe it
@@ -312,7 +312,7 @@ class Settings():
             overlayId = int(ADDON.getSetting("overlayImage"))
             # Check if this is is the manual defined option, so the last in the selection
             if overlayId >= len(Settings.OVERLAY_IMAGES):
-                return ADDON.getSetting("overlayImageFile").decode("utf-8")
+                return ADDON.getSetting("overlayImageFile")
             else:
                 return Settings.OVERLAY_IMAGES[overlayId]
         else:
@@ -387,7 +387,7 @@ class Settings():
             # Check if this is is the manual defined option, so the last in the selection
             if overlayId >= len(Settings.OVERLAY_IMAGES):
                 overlayFileTag = "rule%dOverlayFile" % ruleId
-                return ADDON.getSetting(overlayFileTag).decode("utf-8")
+                return ADDON.getSetting(overlayFileTag)
             else:
                 return Settings.OVERLAY_IMAGES[overlayId]
         return None

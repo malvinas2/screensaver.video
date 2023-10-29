@@ -8,10 +8,10 @@ import xbmcvfs
 import xbmcgui
 
 # Import the common settings
-from settings import log
-from settings import Settings
-from settings import os_path_join
-from settings import os_path_split
+from resources.lib.settings import log
+from resources.lib.settings import Settings
+from resources.lib.settings import os_path_join
+from resources.lib.settings import os_path_split
 
 ADDON = xbmcaddon.Addon(id='screensaver.video')
 ICON = ADDON.getAddonInfo('icon')
@@ -19,15 +19,15 @@ ICON = ADDON.getAddonInfo('icon')
 
 class CollectSets():
     def __init__(self):
-        addonRootDir = xbmc.translatePath('special://profile/addon_data/%s' % ADDON.getAddonInfo('id')).decode("utf-8")
+        addonRootDir = xbmcvfs.translatePath('special://profile/addon_data/%s' % ADDON.getAddonInfo('id'))
         self.collectSetsFile = os_path_join(addonRootDir, 'collectsets.xml')
         self.disabledVideosFile = os_path_join(addonRootDir, 'disabled.xml')
 
     def getCollections(self):
         collectionMap = {}
         # Add the default set of collections
-        collectionsDir = ADDON.getAddonInfo('path').decode("utf-8")
-        collectionsDir = xbmc.translatePath(os_path_join(collectionsDir, 'resources')).decode("utf-8")
+        collectionsDir = ADDON.getAddonInfo('path')
+        collectionsDir = xbmcvfs.translatePath(os_path_join(collectionsDir, 'resources'))
 
         collectionsDir = os_path_join(collectionsDir, 'collections')
         collectionMap['Aquarium'] = {'name': 'Aquarium', 'filename': os_path_join(collectionsDir, 'aquarium.xml'), 'image': ICON, 'default': True}

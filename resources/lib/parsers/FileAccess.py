@@ -28,9 +28,9 @@ class FileAccess:
     def log(txt):
         if ADDON.getSetting( "logEnabled" ) == "true":
             if isinstance (txt,str):
-                txt = txt.decode("utf-8")
+                txt = txt
             message = u'%s: %s' % (ADDON_ID, txt)
-            xbmc.log(msg=message.encode("utf-8"), level=xbmc.LOGDEBUG)
+            xbmc.log(msg=message, level=xbmc.LOGDEBUG)
 
 
     @staticmethod

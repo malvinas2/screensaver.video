@@ -1,6 +1,7 @@
 __NOTICE__
 
-__I did some slight modifications to get this addon running in Kodi Leia 18, but I do not maintain it actively. If you are interested in taking it over then please contact me via the Issues section.__
+__I did some slight modifications to get this addon running in Kodi 19/20 (well, at least the main functions....), 
+but I do not maintain it actively. If you are interested in taking it over then please contact me via the Issues section.__
 
 All credits go to He-who-must-not-be-named aka Robwebset ;-)
 

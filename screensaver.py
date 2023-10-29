@@ -28,7 +28,7 @@ from resources.lib.VideoParser import VideoParser
 from resources.lib.collectSets import CollectSets
 
 ADDON = xbmcaddon.Addon(id='screensaver.video')
-CWD = ADDON.getAddonInfo('path').decode("utf-8")
+CWD = ADDON.getAddonInfo('path')
 
 
 # Video Screensaver Player that can detect when the next item in a playlist starts
@@ -325,8 +325,8 @@ class ScreensaverWindow(xbmcgui.WindowXMLDialog):
     def _updatePlaylistForSettings(self, playlist):
         if playlist.size() < 1:
             return playlist
-
-        filename = playlist[0].getfilename()
+        filename = playlist[0].getPath()
+        # filename = playlist[0].getFilenameAndPath()
         duration = self._getVideoDuration(filename)
         log("Duration is %d for file %s" % (duration, filename))
 
