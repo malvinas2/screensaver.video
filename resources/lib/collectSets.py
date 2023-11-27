@@ -260,7 +260,7 @@ class CollectSets():
         try:
             root = ET.Element('collections')
 
-            for customCollectionKey in customCollections.keys():
+            for customCollectionKey in list(customCollections.keys()):
                 customCollection = customCollections[customCollectionKey]
                 collectionElem = ET.SubElement(root, 'collection')
 
@@ -329,7 +329,7 @@ class CollectSets():
         customCollections = self.getCustomCollectionSets()
 
         # Add check to see if it clashes with a different custom collection
-        if collectionName in customCollections.keys():
+        if collectionName in list(customCollections.keys()):
             log("CollectSets: Custom collection name clashes %s" % collectionName)
             # We return True here, as we have already displayed an error
             msg = "%s: %s" % (ADDON.getLocalizedString(32084), collectionName)
@@ -358,7 +358,7 @@ class CollectSets():
         customCollections = self.getCustomCollectionSets()
 
         # Make sure the one we are removing is in the collection set
-        if name in customCollections.keys():
+        if name in list(customCollections.keys()):
             log("CollectSets: Custom collection name exists %s" % name)
             del customCollections[name]
             # save the new set of custom collections
@@ -371,7 +371,7 @@ class CollectSets():
         videoList = []
         # get all the collections
         collectionMap = self.getCollections()
-        for collectionKey in collectionMap.keys():
+        for collectionKey in list(collectionMap.keys()):
             collectionDetail = collectionMap[collectionKey]
             # Load the details about this collection
             collectionDetails = self.loadCollection(collectionDetail['filename'])

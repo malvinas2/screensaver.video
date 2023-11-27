@@ -17,8 +17,8 @@ ADDON_ID   = ADDON.getAddonInfo('id')
 
 
 def ascii(string):
-    if isinstance(string, basestring):
-        if isinstance(string, unicode):
+    if isinstance(string, str):
+        if isinstance(string, str):
            string = string.encode('ascii', 'ignore')
 
     return string
@@ -29,7 +29,7 @@ class FileAccess:
         if ADDON.getSetting( "logEnabled" ) == "true":
             if isinstance (txt,str):
                 txt = txt
-            message = u'%s: %s' % (ADDON_ID, txt)
+            message = '%s: %s' % (ADDON_ID, txt)
             xbmc.log(msg=message, level=xbmc.LOGDEBUG)
 
 
@@ -173,7 +173,7 @@ class VFSFile:
         
         
     def write(self, data):
-        if isinstance(data, unicode):
+        if isinstance(data, str):
             data = bytearray(data, "utf-8")
             data = bytes(data)
     

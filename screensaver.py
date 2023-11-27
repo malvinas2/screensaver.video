@@ -323,36 +323,10 @@ class ScreensaverWindow(xbmcgui.WindowXMLDialog):
 
     # Apply any user setting to the created playlist
     def _updatePlaylistForSettings(self, playlist):
-        if playlist.size() < 1:
-            return playlist
-        filename = playlist[0].getPath()
-        # filename = playlist[0].getFilenameAndPath()
-        duration = self._getVideoDuration(filename)
-        log("Duration is %d for file %s" % (duration, filename))
-
-        startTime = 0
-
-        # Check if we have a random start time
-        if Settings.isRandomStart():
-            startTime = random.randint(0, int(duration * 0.75))
-
-        clockStart = Settings.getTimeForClock(filename, duration)
-        if clockStart > 0:
-            startTime = clockStart
-
-        # Set the random start
-        if (startTime > 0) and (duration > 10):
-            listitem = xbmcgui.ListItem()
-            # Record if the theme should start playing part-way through
-            listitem.setProperty('StartOffset', str(startTime))
-
-            log("Setting start of %d for %s" % (startTime, filename))
-
-            # Remove the old item from the playlist
-            playlist.remove(filename)
-            # Add the new item at the start of the list
-            playlist.add(filename, listitem, 0)
-
+         # Set the random start
+        if playlist.size() >= 1 and Settings.isRandomStart():
+            percent = 1.0 * random.randint(0, 9000) / 100
+            playlist[0].setProperty('StartPercent', str(percent))
         return playlist
 
     # Update anything needed once the video is playing

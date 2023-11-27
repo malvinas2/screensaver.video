@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys
-import urllib
-import urlparse
+import urllib.request, urllib.parse, urllib.error
+import urllib.parse
 import traceback
 import xbmc
 import xbmcvfs
@@ -31,7 +31,7 @@ class MenuNavigator():
 
     # Creates a URL for a directory
     def _build_url(self, query):
-        return self.base_url + '?' + urllib.urlencode(query)
+        return self.base_url + '?' + urllib.parse.urlencode(query)
 
     # The root menu shows all of the available collections
     def rootMenu(self):
@@ -151,7 +151,7 @@ class MenuNavigator():
             log("Download: Using server: %s" % downloadURL)
 
             # Now retrieve the actual file
-            fp, h = urllib.urlretrieve(downloadURL, tmpdestination, _report_hook)
+            fp, h = urllib.request.urlretrieve(downloadURL, tmpdestination, _report_hook)
             log(h)
 
             # Check to make sure that the file created downloaded correctly
@@ -352,7 +352,7 @@ if __name__ == '__main__':
     # Get all the arguments
     base_url = sys.argv[0]
     addon_handle = int(sys.argv[1])
-    args = urlparse.parse_qs(sys.argv[2][1:])
+    args = urllib.parse.parse_qs(sys.argv[2][1:])
 
     # Record what the plugin deals with, files in our case
     xbmcplugin.setContent(addon_handle, 'files')

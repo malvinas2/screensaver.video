@@ -15,7 +15,7 @@ def log(txt, loglevel=xbmc.LOGDEBUG):
     if (ADDON.getSetting("logEnabled") == "true") or (loglevel != xbmc.LOGDEBUG):
         if isinstance(txt, str):
             txt = txt
-        message = u'%s: %s' % (ADDON_ID, txt)
+        message = '%s: %s' % (ADDON_ID, txt)
         xbmc.log(msg=message, level=loglevel)
 
 
