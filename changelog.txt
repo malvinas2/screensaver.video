@@ -1,3 +1,6 @@
+v121.09.15 (2024-09-15)
+- renamed default directory for xml-file from '1080p' to '1080i'
+
 v120.11.01 (2023-11-01)
 - Update for Kodi19/20, Python3
 
